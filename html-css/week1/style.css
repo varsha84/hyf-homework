@@ -1,0 +1,43 @@
+body {
+    
+    line-height: 1.6;
+}
+#left {
+    width: 30%;
+    float: left;
+    padding: 10px;
+    background-color:rgb(217, 217, 217);
+    border-left: 20px solid rgb(77, 166, 255);
+    
+}
+
+#right {
+width: 60%;
+float: right;
+padding: 10px;
+
+
+}
+
+img {
+    width : 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#contact
+{
+    
+    
+    font-size: 20px;
+    padding-left:20px;
+}
+#right h2{
+    background-color:  rgb(77, 166, 255);
+    padding-left:10px;
+}
+p, li{
+    font-size:1.2em;
+}
