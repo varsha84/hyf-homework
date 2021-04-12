@@ -1,0 +1,79 @@
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main img{
+    width: 100%;
+}
+nav ul{
+    display: flex;
+    padding-left: 80px;
+}
+nav ul li{
+    font-weight: bold;
+    font-size: 20px;
+    list-style: none;
+    padding: 20px;
+    
+}
+header{
+    padding-top: 30px;
+    padding-left: 100px;
+    border-bottom: solid 1px gainsboro;
+    background-color:ghostwhite;
+}
+header h1{
+    margin-bottom: 0;
+}
+header h3{
+    margin-top: 0;
+    color: grey;
+}
+
+.info {
+    display: flex;
+}
+.left{
+    padding-left: 100px;
+    padding-right: 20px;
+    width: 30%;
+}
+
+.right{
+    padding-right: 100px;
+    padding-left: 20px;
+    width: 70%;
+}
+.icons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+.icons img{
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+}
+
+footer{
+    padding: 20px;
+    display: flex;
+    background-color:blueviolet;
+    justify-content: space-around;
+    margin-top: 50px;
+    color:ghostwhite;
+}
+
+footer li{
+    list-style: none;
+    padding:10px;
+}
+
+footer ul{
+    padding: 0;
+}
+
+footer h3{
+    padding-left: 10px;
+    text-transform: uppercase;
+}
