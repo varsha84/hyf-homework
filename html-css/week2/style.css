@@ -29,11 +29,18 @@ header h3{
     margin-top: 10px;
     color: grey;
 }
-
+a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+  a:hover {
+    color: darkgrey;
+  }
 .info {
     display: flex;
     margin-left: 100px;
     margin-right: 100px;
+    
     
 }
 
@@ -89,6 +96,9 @@ footer h3{
     height:300px;
 
 }
+header h2, main p {
+    color: grey;
+  }
 
 @media screen and (max-width:500px) {
     .info {
