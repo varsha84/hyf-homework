@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form1.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/community.jpg" alt="community logo">
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a href="form1.html">Info</a> </li>
+                <li><a href="form2.html">Contact</a> </li>
+                <li><a href="form3.html">Selection</a> </li>
+                <li><a href="form4.html">Payment</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div>
+            <h1>Sign up to yourcustomtailor.com</h1>
+        </div>
+        <div>
+            <h3>Step 4/4 - Payment</h3>
+            <!--progress image-->
+            <label for="file">Progress</label>
+            <progress id="file" value="100" max="100">32%</progress>
+
+        </div>
+    </section>
+
+    <section>
+        <h3>Please fill in your payment data</h3>
+        <form action="#">
+            <div class="box">
+                <div class="card-info line">
+                    <label for="name">Name on Card</label>
+                    <input type="text" id="name" name="name" placeholder="card holder name">
+                </div>
+            </div>
+            <div class="box">
+                <div class="card-type line">
+                    <label for="country">Type of card</label>
+                    <select name="country" id="country">
+                        <option value="Type of card"></option>
+                        <option value="VISA">Denmark</option>
+                        <option value="AMERICAN EXPERESS">India</option>
+                        <option value="MASTER CARD">Norway</option>
+                        <option value="DK">London</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box">
+                <div class="line">
+                    <label for="c-num">Credit card number</label>
+                    <input type="text" id="c-num" value="" placeholder="1234-1234-1234-1234">
+                </div>
+                <div class="line">
+                    <label for="first-name">First name</label>
+                    <input type="text" id="first-name" name="first-name">
+                </div>
+            </div>
+            <div class="box">
+                <div class="line">
+                    <label for="e-mon">Exp Month</label>
+                    <input type="text" id="e-mon" value="" placeholder="month">
+                </div>
+                <div class="line">
+                    <label for="e-year">Exp Year</label>
+                    <input type="number" id="e-year" name="e-year" placeholder="year">
+                </div>
+            </div>
+            <div class="line">
+                <label for="num">CVV</label>
+                <input type="password" id="num" name="num" placeholder="cvv">
+            </div>
+            <div class="button">
+                <input type="submit" value="Next step">
+            </div>
+        </form>
+    </section>
+
+</body>
+
+</html>

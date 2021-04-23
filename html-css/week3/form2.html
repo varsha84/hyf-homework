@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="form1.css" />
+  <title>Document</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="img/community.jpg" alt="community logo" />
+    </div>
+    <nav>
+      <ul class="navigation">
+        <li><a href="form1.html">Info</a> </li>
+        <li><a href="form2.html">Contact</a> </li>
+        <li><a href="form3.html">Selection</a> </li>
+        <li><a href="form4.html">Payment</a> </li>
+      </ul>
+    </nav>
+  </header>
+  <div>
+    <h1>Sign up to yourcustomtailor.com</h1>
+  </div>
+  <div>
+    <h1>Step 2/4 - tell us who you are?</h1>
+    <!--progress image-->
+    <label for="file">Progress</label>
+    <progress id="file" value="50" max="100">32%</progress>
+  </div>
+  <div>
+    <h3>
+      We will probably need to stay in touch somehow. Let is know how we can
+      reach you?
+    </h3>
+  </div>
+  <form action="form3.html" action="get">
+    <div class="box">
+      <div class="line">
+        <label for="mail">Email*</label>
+        <input type="email" id="mail" name="mail" />
+      </div>
+      <div class="line">
+        <label for="p-number">Phone*</label>
+        <input type="number" id="p-number" name="p-number" />
+      </div>
+    </div>
+    <div class="line">
+      <label for="pass">Password*</label>
+      <input type="password" id="pass" name="pass" /> 
+    </div>
+    <div class="line">
+      <label for="re-pass">Re-enter Password*</label>
+      <input type="password" id="re-pass" name="re-pass" />
+    </div>
+      <p>I want to sign up for the newsletter</p>
+      <div class="box">
+        <label for="n-letter">Weekly newsletter</label>
+        <input type="radio" id="n-letter" name="n-letter" value="n-letter" checked />
+        <label for="m-news">Monthly-news</label>
+        <input type="radio" id="m-news" name="m-news" value="m-news" />
+        <label for="other">Don't send me news</label>
+        <input type="radio" id="other" name="other" value="other" />
+      </div>
+      <div class="button">
+        <input type="submit" value="Next step">
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form1.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/community.jpg" alt="community logo">
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a href="form1.html">Info</a> </li>
+                <li><a href="form2.html">Contact</a> </li>
+                <li><a href="form3.html">Selection</a> </li>
+                <li><a href="form4.html">Payment</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div>
+            <h1>Sign up to yourcustomtailor.com</h1>
+            <p>We can’t wait to help you improve your life-style and gain the attention from people around you!
+
+                Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy
+                picking the best offers that match your preferences and style. Every week we will send you a
+                hand-picked selection - we just need to know a few details about your first…</p>
+        </div>
+        <div>
+            <h1>Step 1/4 - tell us who you are?</h1>
+            <!--progress image-->
+            <label for="file">Progress</label>
+            <progress id="file" value="25" max="100">32%</progress>
+
+        </div>
+    </section>
+    <section>
+        <h3>Nice to meet you. Let’s spend a minute to get to know each other? Please enter the following:</h3>
+        <form action="form2.html">
+            <div class="name  box">
+                <div class="line">
+                    <label for="first-name">First name*</label>
+                    <input type="text" id="first-name" name="first-name">
+                </div>
+                <div class="line">
+                    <label for="last-name">Last name*</label>
+                    <input type="text" id="last-name" name="last-name">
+                </div>
+            </div>
+            <div class="country box">
+                <div class="line">
+                    <label for="country">Selet a Country</label>
+                    <select name="country" id="country">
+                        <option value="Selet a Country"></option>
+                        <option value="denmark">Denmark</option>
+                        <option value="india">India</option>
+                        <option value="norway">Norway</option>
+                        <option value="london">London</option>
+                    </select>
+                </div>
+            </div>
+            <div class="address box">
+                <div class="line">
+                    <label for="address">Street Address*</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="line">
+                    <label for="postcode">Postcode*</label>
+                    <input type="text" id="postcode" name="postcode" minlength="4" maxlength="4">
+                </div>
+            </div>
+            <div class="detail box">
+                <div>
+                    <label for="description">Profile description <br><br> <span> Please provide a short description of
+                            yourself
+                            to be displayed on our social community pages.</span> </label>
+
+                    <textarea name="description" id="description" cols="30" rows="6"></textarea>
+                </div>
+            </div>
+            <p>Use the same address for billing and shipping? check the box below to fill out a separate shipping
+                address.</p>
+            <label for="shipping">Shipping Address</label>
+            <input type="checkbox" id="ship">
+            <div class="contact-detail">
+                <div class="name box">
+                    <div class="line">
+                        <label for="first-name">First name*</label>
+                        <input type="text" id="first-name" name="first-name">
+                    </div>
+                    <div class="line">
+                        <label for="last-name">Last name*</label>
+                        <input type="text" id="last-name" name="last-name">
+                    </div>
+                </div>
+                <div class="country box">
+                    <div class="line">
+                        <label for="country">Selet a Country</label>
+                        <select name="country" id="country">
+                            <option value="Selet a Country"></option>
+                            <option value="denmark">Denmark</option>
+                            <option value="india">India</option>
+                            <option value="norway">Norway</option>
+                            <option value="london">London</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="address box">
+                    <div class="line">
+                        <label for="address">Street Address*</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div class="line">
+                        <label for="postcode">Postcode*</label>
+                        <input type="text" id="postcode" name="postcode" minlength="4" maxlength="4">
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" name="nextstep" value="Next Step">
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
