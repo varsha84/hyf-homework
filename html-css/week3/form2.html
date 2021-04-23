@@ -43,20 +43,22 @@
     <div class="box">
       <div class="line">
         <label for="mail">Email*</label>
-        <input type="email" id="mail" name="mail" />
+        <input type="email" id="mail" name="mail" required/>
       </div>
       <div class="line">
         <label for="p-number">Phone*</label>
-        <input type="number" id="p-number" name="p-number" />
+        <input type="number" id="p-number" name="p-number" required/>
       </div>
     </div>
     <div class="line">
       <label for="pass">Password*</label>
-      <input type="password" id="pass" name="pass" /> 
+      <input type="password" id="pass" name="pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+      title="Password must be at least 10 characters long contain an uppercase letter"/> 
     </div>
     <div class="line">
       <label for="re-pass">Re-enter Password*</label>
-      <input type="password" id="re-pass" name="re-pass" />
+      <input type="password" id="re-pass" name="re-pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" 
+      title="Password must be at least 10 characters long contain an uppercase letter"/>
     </div>
       <p>I want to sign up for the newsletter</p>
       <div class="box">
@@ -68,6 +70,7 @@
         <input type="radio" id="other" name="other" value="other" />
       </div>
       <div class="button">
+        <a href="form3.html">
         <input type="submit" value="Next step">
       </div>
     </div>
