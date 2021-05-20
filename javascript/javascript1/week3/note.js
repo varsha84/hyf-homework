@@ -37,8 +37,9 @@ function logOutNotesFormatted(){
         console.log(`The note with ${notes[i].id}, has the following note text: ${notes[i].content}`);
     }
   }
-  
+
 logOutNotesFormatted(); // should log out the text below
+
 
   
   

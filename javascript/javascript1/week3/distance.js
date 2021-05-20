@@ -11,4 +11,4 @@ function calTime(travelInformation)
     return {hours, mins};
 }
 const travelTime  = calTime(travelInformation);
-console.log(`Total travel time is :${travelTime[0].hours} hours and ${travelTime[1].mins} minutes`);
+console.log(`Total travel time is :${travelTime.hours} hours and ${travelTime.mins} minutes`);
