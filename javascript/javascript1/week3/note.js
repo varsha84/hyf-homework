@@ -1,7 +1,7 @@
 //save a note
 const notes = [];
 
-function saveNote(content, id) {
+function saveNote(content, id){
   // write some code here
   notes.push({content: content, id: id});
   return notes;
@@ -16,7 +16,7 @@ saveNote("Buy medicine", 6);
 console.log(notes); 
 
 //Get a note
-function getNote(id) {
+function getNote(id){
    
     for(let i = 0;i < notes.length; i++)
     {
@@ -27,17 +27,18 @@ function getNote(id) {
     }
   }
   
-  const firstNote = getNote(5);
-  console.log(firstNote); 
+const firstNote = getNote(5);
+console.log(firstNote); 
 
-  //Log out notes
-  function logOutNotesFormatted() {
+//Log out notes
+function logOutNotesFormatted(){
     for(let i = 0; i < notes.length; i++)
     {
         console.log(`The note with ${notes[i].id}, has the following note text: ${notes[i].content}`);
     }
   }
   
-  logOutNotesFormatted(); // should log out the text below
+logOutNotesFormatted(); // should log out the text below
+
   
   
