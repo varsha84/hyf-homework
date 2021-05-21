@@ -15,3 +15,4 @@ const pos = names.indexOf(nameToRemove);
 const removeItem = names.splice(pos,1);
 console.log(removeItem);
 console.log(names);
+

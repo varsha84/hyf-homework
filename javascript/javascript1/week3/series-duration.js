@@ -44,16 +44,16 @@ const seriesDurations = [
 ];
 const totalMinutes = 365.25 * 80 * 24 * 60;
 
-function CalAvg(seriesDurations) {
+function logOutSeriesText(seriesDurations) {
     let totalTimeSpend = 0;
-    for (let i = 0; i < seriesDurations.length; i++) {
-        let minutes = (seriesDurations[i].days * 24 * 60) + (seriesDurations[i].hours * 60) + seriesDurations[i].minutes;
-        let timeSpend = minutes * 100 / totalMinutes;
+    for (let i = 0; i < seriesDurations.length; i++) 
+    {
+        const minutes = seriesDurations[i].days * 24 * 60 + seriesDurations[i].hours * 60 + seriesDurations[i].minutes;
+        const timeSpend = minutes * 100 / totalMinutes;
         console.log(`${seriesDurations[i].title} took ${timeSpend.toFixed(3)}% of my life`);
         totalTimeSpend = totalTimeSpend + timeSpend;
     }
     console.log(`\nIn total that is ${totalTimeSpend.toFixed(3)}% of my life `);
-
 }
+logOutSeriesText(seriesDurations);
 
-CalAvg(seriesDurations);

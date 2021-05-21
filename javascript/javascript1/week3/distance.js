@@ -12,3 +12,4 @@ function calTime(travelInformation)
 }
 const travelTime  = calTime(travelInformation);
 console.log(`Total travel time is :${travelTime.hours} hours and ${travelTime.mins} minutes`);
+

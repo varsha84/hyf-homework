@@ -41,5 +41,6 @@ function logOutNotesFormatted(){
 logOutNotesFormatted(); // should log out the text below
 
 
+
   
   

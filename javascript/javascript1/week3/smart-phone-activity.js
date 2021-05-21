@@ -46,3 +46,5 @@ function addTodayActivity(activity,duration)
 }
 addTodayActivity("instagram", 20);
 console.log(usage);
+
+
