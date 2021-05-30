@@ -1,6 +1,7 @@
 
 //max usage of activity in day
 const usage = [];
+const activityUsage = [];
 const usageNew = [];
 const durationArr = [];
 
@@ -23,32 +24,48 @@ addActivity("youtube", 20);
 addActivity("twitter", 5);
 console.log(usage);
 
-function calculateActivities() 
+function aggrigateActivities() 
 {
+    const uniqueActivity = [];
     for (let i = 0; i < usage.length; i++) 
     {
-        for (let j = i + 1; j < usage.length; j++) 
+        let activity = usage[i].activity;
+        let duration = usage[i].duration;
+        if (! uniqueActivity.includes(activity))
         {
-            if (usage[i].activity == usage[j].activity) 
+            uniqueActivity.push(activity);
+            for (let j = i + 1; j < usage.length; j++) 
             {
-                usage[i].duration = usage[i].duration + usage[j].duration;
-                usage.splice(j, 1);
+                if (activity === usage[j].activity)
+                {
+                    duration = duration + usage[j].duration;
+                }
             }
+            activityUsage.push({activity, duration});
         }
     }
+    console.log(uniqueActivity);
+    console.log(activityUsage);
+}
+
+function maxUsage()
+{
     let maxkey = "";
     let maxValue = 0
-    for (let i = 0; i < usage.length; i++) 
+    for (let i = 0; i < activityUsage.length; i++) 
     {
-        if (usage[i].duration > maxValue)
+        if (activityUsage[i].duration > maxValue)
         {
-            maxkey = usage[i].activity;
-            maxValue = usage[i].duration;
+            maxkey = activityUsage[i].activity;
+            maxValue = activityUsage[i].duration;
         }
-
     }
     return `The maximum used of ${maxkey} and you used ${maxValue} min`;
 }
-const arr = calculateActivities();
+
+aggrigateActivities();
+const arr = maxUsage();
 console.log(arr);
+
+
 
