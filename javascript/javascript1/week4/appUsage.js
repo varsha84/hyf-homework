@@ -1,14 +1,10 @@
-
 //max usage of activity in day
-const usage = [];
-const activityUsage = [];
-const usageNew = [];
-const durationArr = [];
+const activities = [];
 
 function addActivity(activity, duration) 
 {
     const today = new Date();
-    usage.push({
+    activities.push({
         date: today.toLocaleDateString("en-US"),
         activity: activity,
         duration: duration
@@ -22,50 +18,56 @@ addActivity("twitter", 25);
 addActivity("whatsapp", 16);
 addActivity("youtube", 20);
 addActivity("twitter", 5);
-console.log(usage);
+console.log(activities);
 
-function aggrigateActivities() 
+function aggregateActivities(activities) 
 {
+    const aggrActivities = [];
     const uniqueActivity = [];
-    for (let i = 0; i < usage.length; i++) 
+    for (let i = 0; i < activities.length; i++) 
     {
-        let activity = usage[i].activity;
-        let duration = usage[i].duration;
+        let activity = activities[i].activity;
+        let duration = activities[i].duration;
         if (! uniqueActivity.includes(activity))
         {
             uniqueActivity.push(activity);
-            for (let j = i + 1; j < usage.length; j++) 
+            for (let j = i + 1; j < activities.length; j++) 
             {
-                if (activity === usage[j].activity)
+                if (activity === activities[j].activity)
                 {
-                    duration = duration + usage[j].duration;
+                    duration = duration + activities[j].duration;
                 }
             }
-            activityUsage.push({activity, duration});
+            aggrActivities.push({activity, duration});
         }
     }
     console.log(uniqueActivity);
-    console.log(activityUsage);
+    console.log(aggrActivities);
+    return aggrActivities;
 }
 
-function maxUsage()
+function getActivityWithHighestDuration(activities)
 {
     let maxkey = "";
     let maxValue = 0
-    for (let i = 0; i < activityUsage.length; i++) 
+    for (let i = 0; i < activities.length; i++) 
     {
-        if (activityUsage[i].duration > maxValue)
+        if (activities[i].duration > maxValue)
         {
-            maxkey = activityUsage[i].activity;
-            maxValue = activityUsage[i].duration;
+            maxkey = activities[i].activity;
+            maxValue = activities[i].duration;
         }
     }
-    return `The maximum used of ${maxkey} and you used ${maxValue} min`;
+    return {activity: maxkey, duration: maxValue}
 }
 
-aggrigateActivities();
-const arr = maxUsage();
-console.log(arr);
+function getMostFrequentActivity(activities)
+{
+    let aggregatedActivities = aggregateActivities(activities);
+    let activityWithHighestDuration  = getActivityWithHighestDuration(aggregatedActivities);
+    return activityWithHighestDuration;
+}
 
-
+const mostFrequentActivity = getMostFrequentActivity(activities);
+console.log(`The maximum used of ${mostFrequentActivity.activity} and you used ${mostFrequentActivity.duration} min`);
 
