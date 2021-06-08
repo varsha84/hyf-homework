@@ -1,6 +1,5 @@
 //Find the shortest word
 const danishWords = ["bil", "plante", "kaffe", "bog", "ø", "planetarium"];
-const wordLength = [] ;
 function getShortestWord()
 {
     let shortWord = danishWords[0];
@@ -20,30 +19,31 @@ console.log(`shortest word in array is: ${word}`);
 
 //Find and count the Danish letters
 const danishString = "Jeg har en blå bil";
-let objectLetters = {};
 function danishLetters()
 {    
-    let count1 = 0;
-    let count2 = 0;
-    let count3 = 0;
+    let letterCountÆ = 0;
+    let letterCountØ = 0;
+    let letterCountÅ = 0;
 
     for(let i = 0; i < danishString.length; i++)
     {
         switch(danishString[i])
         {
-            case "æ": count1 = count1 + 1; 
+            case "æ": letterCountÆ = letterCountÆ + 1; 
             break;
-            case "ø": count2 = count2 + 1;
+            case "ø": letterCountØ = letterCountØ + 1;
             break;
-            case "å": count3 = count3 + 1;    
+            case "å": letterCountÆ = letterCountÆ + 1;    
             break;      
         }
     }   
-   const total = count1 + count2 + count3;
-   return {total : total, æ : count1, ø: count2, å : count3};
+   const total = letterCountÆ + letterCountØ + letterCountÅ;
+   return {total : total, æ : letterCountÆ, ø: letterCountØ, å : letterCountÅ};
 }
 const lettersCount  = danishLetters(danishString)
 console.log(lettersCount);
+
+
 
 
 

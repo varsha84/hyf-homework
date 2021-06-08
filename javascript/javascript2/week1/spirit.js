@@ -54,10 +54,6 @@ function onSelectChange()
         myButton.removeEventListener("click", spiritAnimalListener);
 
     }
-    else
-    {
-        myButton.addEventListener("click", spiritAnimalListener);
-        myButton.removeEventListener("mouseover",spiritAnimalListener);
-    }
 }
+
 

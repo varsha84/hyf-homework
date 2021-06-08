@@ -6,8 +6,8 @@ console.log(products);
 function renderProducts(products) 
 {
     const main = document.querySelector("main");
-    const Ul =document.createElement("ul");
-    main.appendChild(Ul);
+    const ul =document.createElement("ul");
+    main.appendChild(ul);
 
     for(i = 0; i < products.length; i++)
     {
@@ -24,7 +24,7 @@ function renderProducts(products)
         productRating.innerHTML = `Rating : ${products[i].rating}`
         newLi.appendChild(productRating);
         
-        Ul.appendChild(newLi);
+        ul.appendChild(newLi);
     }
 }
 
