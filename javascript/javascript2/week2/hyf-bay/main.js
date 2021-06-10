@@ -29,17 +29,51 @@ function renderProducts(products)
 }
 
 renderProducts(products);
-const searchBox = document.querySelector("#search-box");
-searchBox.addEventListener("keyup",searchListener)
+// get user input
+const searchName = document.querySelector("#search-name");
+const searchPrice = document.querySelector("#search-price");
+const searchRating = document.querySelector("#search-rating");
+    
+searchName.addEventListener("keyup",searchNameListener);
+searchPrice.addEventListener("keyup",searchPriceListener);
+searchRating.addEventListener("keyup",searchRatingListener);
 
+
+// clear DOM
 function clear(){
     const main = document.querySelector("main");
     main.innerHTML = " ";
 
 }
 
-function searchListener(e){
-    const data = products.filter(product =>product.name.toLowerCase().includes(searchBox.value.toLowerCase()));
+function searchNameListener(e){
+    const data = products.filter(product =>product.name.toLowerCase().includes(searchName.value.toLowerCase()));
     clear();
     renderProducts(data);
 }
+
+function searchPriceListener(e){
+    if(searchPrice.value == ""){
+        renderProducts(products);
+        
+    }
+    else{
+        const data = products.filter(product =>product.price < parseInt(searchPrice.value));
+        clear();
+        renderProducts(data);
+    }
+}
+
+function searchRatingListener(e){
+    if(searchRating.value == ""){
+        renderProducts(products);
+        
+    }
+    else{
+        const data = products.filter(product =>product.rating === parseInt(searchRating.value));
+        clear();
+        renderProducts(data);
+    }
+
+}
+
