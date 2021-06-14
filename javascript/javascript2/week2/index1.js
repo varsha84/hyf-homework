@@ -37,7 +37,35 @@ function generateListings(numberOfListings) {
 const lists = generateListings(37);
 console.log(lists);
 
-//Filter listings
+  //1-Create 37 listings and log out every listings size
+//Arrow function
+
+const listingSize = lists.map(list => list.size)
+console.log("listingSize :", listingSize);
+
+//2-Create an array that contains all the 37 listing prices.
+// Arrow function
+
+const listingPrice = lists.map((list)=> list.price);
+console.log("listingPrize :", listingPrice); 
+
+//3-Create an array of cheap listings. You define what cheap means. Each item in this array should be of type object
+//if house price is less than 2277 that means is cheap
+// Arrow function
+
+const cheapListing = lists.filter((list)=>list.price < 2277)
+console.log("cheapListing :", cheapListing) ;
+
+//Create an array of expensize listings prices. Each item in this array should be of type number
+const expensiveListingPrice = lists.filter((list)=>list.price > 5000)
+.map((list)=>list.price)
+console.log("expensiveListingPrice",expensiveListingPrice) //it gives array of price
+
+//Create an array of listings that have parking. Each item in this array should be of type object
+const listingParking = lists.filter((list)=>list.facilities.includes("Parkering"))
+console.log("listingParking: ",listingParking); 
+
+ //Filter listings
 const filter = {
     type: 'farm',
     minPrize: 1500, 
@@ -55,39 +83,14 @@ const filter2 = {
     minSize: 100
 };
 
-// this function does return the expected output, If I pass filter without all four attribtes. 
-//How do I check undefined condition for those attribute. check functioan call below with filter and filter1
-/* function filterListings(lists, filter){
+function filterListings(lists, filter){
     const filteredData = lists.filter( (list) => list.type.toLowerCase() === filter.type.toLowerCase() ) 
     .filter((list) => list.price >= filter.minPrize)
     .filter((list) => list.hasGarden === filter.hasGarden)
     .filter((list) => list.size >= filter.minSize)
      
     return filteredData;
-}  */
-
-function filterListings(lists, filter){
-    const filteredData = lists.filter( (list) => filter.type ? list.type.toLowerCase() === filter.type.toLowerCase() : true) 
-    .filter((list) => filter.minPrize ? list.price >= filter.minPrize : true)
-    .filter((list) => filter.hasGarden ? list.hasGarden === filter.hasGarden : true)
-    .filter((list) => filter.minSize ? list.size >= filter.minSize : true)
-    return filteredData;
 } 
-
-// If I pass filter without hasGarden and minSize. it is not working as expected. how i check undefined condition.
-const farmListings = filterListings(lists, filter);
-console.log(farmListings);
-
-// If I pass filter1 without  minSize. it is not working as expected. how i check undefined condition.
-const farmListings1 = filterListings(lists, filter1);
-console.log(farmListings1);
-
-// If I pass filter2 with all type, minPrize, hasgarden and minSize. it is working.
-
-const farmListings2 = filterListings(lists, filter2);
-console.log(farmListings2);
-
-// second approch to fix above problem
 
 function filterListings2(lists, filter)
 {
@@ -111,7 +114,8 @@ function filterListings2(lists, filter)
     return filteredData;
 } 
 
- 
+/* const farmListings = filterListings(lists, filter2);
+console.log(farmListings2); */
 
 const farmListings_new = filterListings2(lists, filter);
 console.log(farmListings_new);
@@ -121,3 +125,49 @@ console.log(farmListings_new1);
 
 const farmListings_new2 = filterListings2(lists, filter2);
 console.log(farmListings_new2); 
+ 
+function renderListings(listings)
+{
+    const body = document.querySelector("body");
+    const table = document.createElement("table");
+    body.appendChild(table);
+    const tr = document.createElement("tr");
+    table.appendChild(tr);
+    for(const item  of ['Image', 'Type', 'Price', 'Size'])
+    {
+        const th = document.createElement("th");
+        th.innerHTML = item;
+        tr.appendChild(th);
+    }    
+    
+    lists.forEach(list => {
+        const tr = document.createElement("tr");
+        table.appendChild(tr);
+        
+        const td = document.createElement("td");
+        const img = document.createElement("img");
+        img.setAttribute("src", list.img);
+        td.appendChild(img);
+        tr.appendChild(td);
+
+        const type = document.createElement("td");
+        type.innerHTML = list.type;
+        tr.appendChild(type);
+
+        const price = document.createElement("td");
+        price.innerHTML = list.price;
+        tr.appendChild(price);
+
+        const size = document.createElement("td");
+        size.innerHTML = list.size;
+        tr.appendChild(size);
+
+    });
+    
+    /* const h1 = document.createElement("h1");
+    tr.appendChild(h1); */
+
+
+}
+
+renderListings(lists);
