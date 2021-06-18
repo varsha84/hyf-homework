@@ -1,0 +1,44 @@
+.box{
+    text-align: center;
+}
+
+ #start-btn
+{
+    background-color: #299b4f;
+    color: white;
+    font-size: 1.2em;
+    padding: 5px 24px;
+    margin: 10px;
+    text-decoration: none;
+}
+#restart-btn
+{
+    background-color: #299b4f;
+    color: white;
+    font-size: 1.2em;
+    padding: 5px 24px;
+}
+.container
+{
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid black;
+    
+}
+h1{
+    text-align: center;
+    
+}
+input{
+    font-size: 1em;
+    text-align: center;
+
+}
+.vl{
+border-left: 2px solid black;
+  height: 500px;
+}
+h3
+{
+    padding-top: 100px;
+}
