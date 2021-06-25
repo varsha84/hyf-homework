@@ -1,0 +1,20 @@
+.btnsearchWeather{
+    font-size: 1.2em;
+}
+.container{
+    display: flex;
+    text-decoration: none;
+    justify-content: space-around;
+    width: 80%;
+}
+body{
+    
+    background-image: url('weather.jpg');
+}
+img{
+    width: 100%;
+}
+p, h4{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+}
