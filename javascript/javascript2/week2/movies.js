@@ -15,15 +15,15 @@ console.log("Short movie title :", shortMovieTitle);
 
 //2-Create an array of movie titles with long movie titles. long title means if title length is more than 15
 
-const LongMovieTitle = movies.filter(function(movie){
+const longMovieTitle = movies.filter(function(movie){
     return movie.title.length > 15;
 }).map((movie) => movie.title);
-console.log("Long Movies Title: ", LongMovieTitle);
+console.log("Long Movies Title: ", longMovieTitle);
 
 //3-Count the number of movies made between 1980-1989 (including both the years)
 
-const numOfMovie = movies.filter((movie) => movie.year > 1980 && movie.year <1989);
-const countOfMovie = numOfMovie.length;
+const moviesFrom80s  = movies.filter((movie) => movie.year > 1980 && movie.year <1989);
+const countOfMovie = moviesFrom80s .length;
 console.log("Count of movies: ", countOfMovie); 
 
 //4-Create a new array that has an extra key called tag. The tag is based on the rating: Good (>= 7), Average (>= 4 and < 7), Bad (< 4)
@@ -51,7 +51,7 @@ console.log(" movies rated higher than 6", movieHigerRating)
 
 //6-Count the total number of movies containing any of following keywords: Surfer, Alien or Benjamin.
 
-const findName = movies.filter(function(movie){
+const countNumOfMovies = movies.filter(function(movie){
     
     if((movie.title.toLowerCase().indexOf("surfer") >= 0) || 
     (movie.title.toLowerCase().indexOf("alien") >= 0) ||
@@ -60,13 +60,13 @@ const findName = movies.filter(function(movie){
         return true;
     }    
 });
-console.log("Total Number of movie that contain Surfer, Alien, Benjamin",findName.length)
+console.log("Total Number of movie that contain Surfer, Alien, Benjamin",countNumOfMovies.length)
 
 //duplicated words in the title: 
 
-const movieTitile = movies.map(movie => movie.title)
-.filter((title) => findDuplicateWord(title));
-console.log(movieTitile);
+const movieTitle = movies.map(movie => movie.title)
+.filter(findDuplicateWord);
+console.log(movieTitle);
 
 function findDuplicateWord(stringName)
 {
@@ -87,16 +87,10 @@ function findDuplicateWord(stringName)
 
 //Calculate the average rating of all the movies using reduce. Optional
 
-const averageRatingOfAllMovie = movies.map(movie => movie.rating);
-const moviescount = averageRatingOfAllMovie.length;
-function sum(averageRatingOfAllMovie) {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    const initialValue = 0;
-    return averageRatingOfAllMovie.reduce(reducer, initialValue);
-  }
-const movieRatingSum = sum(averageRatingOfAllMovie)
-const moviesAverageRating = movieRatingSum / moviescount;
-console.log("All Movies Average Rating :", moviesAverageRating.toFixed(1));
+const moviesArr = movies.map(movie => movie.rating);
+const summedRatings = moviesArr.reduce((sum, movie) => sum + movie, 0);
+const averageRating = summedRatings / moviesArr.length
+console.log("All Movies Average Rating :", averageRating.toFixed(1));
 
 //Count the total number of Good, Average and Bad movies.
 
