@@ -1,0 +1,63 @@
+
+[{
+    "name": "klm",
+    "flights":
+    [
+        {
+            "num":"kl357",
+            "origin": "delhi",
+            "destination":"copenhagen",
+            "arrival": "01:15 am" , 
+            "departure": "15:30 pm",
+            "duration": "8 hour 30 min"
+        },
+        {
+            "num":"kl456",
+            "origin": "delhi",
+            "destination":"copenhagen",
+            "arrival": "02:15 am" , 
+            "departure": "17:30 pm",
+            "duration": "9 hour 30 min"
+        },
+        {
+            "num":"kl660",
+            "origin": "delhi",
+            "destination":"copenhagen",
+            "arrival": "01:15 am" , 
+            "departure": "15:30 pm",
+            "duration": "8 hour 30 min"
+        }
+    ]
+    
+},
+{
+    "name": "emarites",
+    "flights":
+    [
+        {
+            "num":"em231",
+            "origin": "delhi",
+            "destination":"copenhagen",
+            "arrival": "01:15 am" , 
+            "departure": "15:30 pm",
+            "duration": "7 hour 30 min"
+        },
+        {
+            "num":"em541",
+            "origin": "delhi",
+            "destination":"copenhagen",
+            "arrival": "12:15 am" , 
+            "departure": "15:30 pm",
+            "duration": "8 hour 30 min"
+        },
+        {
+            "num":"em569",
+            "origin": "delhi",
+            "destination":"copenhagen",
+            "arrival": "03:15 am" , 
+            "departure": "15:30 pm",
+            "duration": "10 hour"
+        }
+    ]
+    
+}]
