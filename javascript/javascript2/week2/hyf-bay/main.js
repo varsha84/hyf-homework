@@ -3,18 +3,18 @@
 const products = getAvailableProducts();
 console.log(products); 
  
-function renderProducts(products) 
+function renderProducts(products = getAvailableProducts()) 
 {
-    const main = document.querySelector("main");
+    const content = document.querySelector("#content");
     const ul =document.createElement("ul");
-    main.appendChild(ul);
+    content.appendChild(ul);
 
     for(i = 0; i < products.length; i++)
     {
         const newLi = document.createElement("li");
-        const productName = document.createElement("h1");
-        productName.innerHTML = products[i].name;
-        newLi.appendChild(productName);
+        const productNameHeading = document.createElement("h1");
+        productNameHeading.innerHTML = products[i].name;
+        newLi.appendChild(productNameHeading);
 
         const productPrice = document.createElement("h3");
         productPrice.innerHTML = `price : ${products[i].price}`;
@@ -28,7 +28,7 @@ function renderProducts(products)
     }
 }
 
-renderProducts(products);
+renderProducts();
 // get user input
 const searchName = document.querySelector("#search-name");
 const searchPrice = document.querySelector("#search-price");
@@ -41,8 +41,8 @@ searchRating.addEventListener("keyup",searchRatingListener);
 
 // clear DOM
 function clear(){
-    const main = document.querySelector("main");
-    main.innerHTML = " ";
+    const ul = document.querySelector("#content > ul");
+    ul.remove();
 
 }
 
