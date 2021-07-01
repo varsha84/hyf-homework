@@ -42,7 +42,7 @@ planetLogFunction(logSaturn);
 When this button is clicked the location (latitude, longitude) of the user should be logged out using this browser api*/
 
 function success(pos) {
-    var crd = pos.coords;
+    const crd = pos.coords;
     document.querySelector("#pos1").innerHTML = `This is latitude  :  ${crd.latitude}`
     document.querySelector("#pos2").innerHTML = `This is longitute : ${crd.longitude}`
   }
