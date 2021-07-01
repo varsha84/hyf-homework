@@ -1,8 +1,8 @@
 let countS = 0;
 let countL = 0;
-let confetti = "";
+let confetti = null;
 function countKeyPress(e){ 
-    let userKey = e.key.toLowerCase()
+    const userKey = e.key.toLowerCase()
     if(userKey === "s"){
         countS++;
         document.querySelector("#countS").innerHTML = countS;
@@ -34,11 +34,11 @@ const stopGame = function(){
     
     if(countS > countL){
         document.querySelector('#playerL').appendChild(div);
-        console.log("player with keypress S has win game")        
+        alert("player with keypress S has win game")        
     }
     else if(countL > countS){
         document.querySelector('#playerR').appendChild(div);
-        console.log("player with keypress l has win game")         
+        alert("player with keypress l has win game")         
     }
     else{
       alert("both have equal points, match tie");
@@ -54,10 +54,12 @@ restart.addEventListener("click", function(){
     document.querySelector("#countS").innerHTML = 0;
     document.querySelector("#countL").innerHTML = 0;
     countL = 0;
-    countL = 0;
-    confetti.clear();
-    document.querySelector('#confetti').remove();
-
+    countS = 0;
+    if (confetti !== null){
+        confetti.clear();
+        confetti = null;
+        document.querySelector('#confetti').remove();
+    }
 });
 
 document.querySelector("#start-btn").addEventListener("click", startGame);
