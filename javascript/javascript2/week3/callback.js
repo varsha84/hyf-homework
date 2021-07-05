@@ -138,7 +138,7 @@ document.querySelector("#click3").addEventListener("click", function(){
 });  */
 
 //Simon solution
-/*
+
 window.addEventListener(‘DOMContentLoaded’, callback());
 let xArr =[]
 let yArr =[]
@@ -159,4 +159,4 @@ function avgCoordinates(intArray){
 return reduceArr;
 }
 setInterval(avgCoordinates(xArr), 30000)
-setInterval(avgCoordinates(yArr), 30000)*/
+setInterval(avgCoordinates(yArr), 30000)
