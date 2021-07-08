@@ -1,0 +1,23 @@
+#username{
+    font-size: 1.2em;
+}
+.url{
+    font-size: 0.8em ;
+    
+}
+table, th, td {
+    border: 2px solid black;
+    width: 500px;
+    
+  }
+th{
+    background-color: rgb(109, 182, 109);
+}
+tr{
+    background-color: rgb(149, 191, 233);
+    font-size: 1.2em;
+}
+#search-bar{
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
