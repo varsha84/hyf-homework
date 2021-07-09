@@ -1,0 +1,20 @@
+.display{
+    font-size :1.8em;
+    text-align: center;
+
+}
+#btn{
+    
+    background-color: rgb(108, 184, 108);
+    border-radius: .2em;
+    padding: 10px;
+    margin: 10px;
+}
+img{
+    width: 400px;
+    height: 300px;
+    margin: 5px;
+}
+#count{
+    margin-bottom: 10px;
+}
