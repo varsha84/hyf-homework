@@ -9,29 +9,28 @@ fetch("https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0a
 });
 
 //2-Promise that resolves after set time
-function myPromise(resolveAfter){
+function delayPromise(resolveAfter){
     return new Promise((resolve) =>{
         setTimeout(() =>{
             resolve()
         }, resolveAfter*1000)
-
     })
 }
 // uses the promise 
-myPromise(8).then(() => {
+delayPromise(8).then(() => {
     console.log("I am called after 8 second asynchronously"); // logged out after 8 seconds
   });
 
 //usses of promise using async/await 
 async function usePromise(delay){
-    const promise = await myPromise(delay);
+    const promise = await delayPromise(delay);
     console.log("I am called after 3 second asynchronously");
 }
 usePromise(3);
 
 //3-write set time out promise
 function setTimeoutPromise(timeout){
-    return new promise((resolve) =>{
+    return new Promise((resolve) =>{
         setTimeout(()=>{
             resolve();
         }, timeout)
@@ -92,16 +91,16 @@ function getCurrentLocation(timeout) {
 renderCurrentLocation(); 
 
 //Fetching and waiting 
-function myPromise(delay){
+function getData(delay){
     return new Promise((resolve)=>{
         setTimeout(()=>{
             fetch("http://api.open-notify.org/astros.json")
-            .then((data)=> data.json())
-            .then((data)=> console.log(data))       
+            .then((response)=> response.json())
+            .then((astrosData)=> console.log(astrosData))       
         },delay*1000)
     })
 }
-myPromise(3);
+getData(3);
 
 //using async/await
 function render3Steps(){
