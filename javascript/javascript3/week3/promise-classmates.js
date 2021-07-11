@@ -1,8 +1,8 @@
 //Getting into promises
 
-
+/* 
 function promiseToClassmates(userName){
-    return new Promise((resolve, reject) => {
+     return new Promise((resolve, reject) => {
         fetch(`https://api.github.com/search/repositories?q=user:${userName}`)
         .then(res=>res.json()) 
         .then(data=>{
@@ -11,10 +11,27 @@ function promiseToClassmates(userName){
             console.log("all promised has resolved")
         resolve(data)})
         .catch((e)=> reject(e))
-    })
+    }) 
+} */
+function fetchClassmates(userName){
+    return fetch(`https://api.github.com/search/repositories?q=user:${userName}`);
+} 
+function getGitRepoData(){
+    return Promise.all([fetchClassmates("simonreddy2001"),
+     fetchClassmates("semih1239"),
+        fetchClassmates("Jul-S")])
+        .then(responseArray =>
+            Promise.all(responseArray.map(response => response.json()))
+            .then(dataArray => {dataArray.forEach(data => renderGitRepoData(data.items))})
+            .catch((e)=>console.log(e))
+        )
+        .catch((e) => console.log(e))
 }
+getGitRepoData()    
+
+
 function renderGitRepoData(data, userName){
-    const ulName = document.querySelector("ul");
+  /*   const ulName = document.querySelector("ul");
     const li = document.createElement("li")
     ulName.appendChild(li);
     li.innerHTML = `${userName} repositories`;
@@ -25,17 +42,20 @@ function renderGitRepoData(data, userName){
         li.setAttribute("class", "url");
         li.innerHTML = `${data.items[i].name}: <a href="#"> ${data.items[i].git_url} </a>`
         ulRepo.appendChild(li);
-    }
+    } */
+
+    const ulName = document.querySelector("ul");
+    const li = document.createElement("li")
 }
 
-function getGitRepoData() { 
+/* function getGitRepoData() { 
     return Promise.all([promiseToClassmates("simonreddy2001"),
         promiseToClassmates("semih1239"),
         promiseToClassmates("Jul-S")
     ]);
 
 }
-getGitRepoData();
+getGitRepoData(); */
 
 /* When you have the data for the different repositories,
 render the fullname of the repo, url of the repo, and the owner of the repo.

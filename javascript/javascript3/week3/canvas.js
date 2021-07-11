@@ -39,7 +39,7 @@ function getRandomColor(){
 }
 
 function drawCircle(){
-    setTimeout(() =>{
+    setInterval(() =>{
         const x = getRandomNumber(70,5)
         const y = getRandomNumber(70,8)
         const r = getRandomNumber(60,3);
