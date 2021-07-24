@@ -1,61 +1,44 @@
 //Getting into promises
 
-/* 
-function promiseToClassmates(userName){
-     return new Promise((resolve, reject) => {
-        fetch(`https://api.github.com/search/repositories?q=user:${userName}`)
-        .then(res=>res.json()) 
-        .then(data=>{
-            console.log(data);
-            renderGitRepoData(data, userName);
-            console.log("all promised has resolved")
-        resolve(data)})
-        .catch((e)=> reject(e))
-    }) 
-} */
 function fetchClassmates(userName){
     return fetch(`https://api.github.com/search/repositories?q=user:${userName}`);
 } 
 function getGitRepoData(){
     return Promise.all([fetchClassmates("simonreddy2001"),
      fetchClassmates("semih1239"),
-        fetchClassmates("Jul-S")])
-        .then(responseArray =>
-            Promise.all(responseArray.map(response => response.json()))
-            .then(dataArray => {dataArray.forEach(data => renderGitRepoData(data.items))})
+        fetchClassmates("Jul-S")
+    ])
+        .then(responseArray => {
+            Promise.all(responseArray.map(res => res.json()))
+            .then(dataArray => {dataArray.forEach(data => renderGitRepoData(data))})
             .catch((e)=>console.log(e))
-        )
+        })
         .catch((e) => console.log(e))
 }
-getGitRepoData()    
+getGitRepoData()  
 
-
-function renderGitRepoData(data, userName){
-  /*   const ulName = document.querySelector("ul");
-    const li = document.createElement("li")
-    ulName.appendChild(li);
-    li.innerHTML = `${userName} repositories`;
-    const ulRepo = document.createElement("ul")
-    li.appendChild(ulRepo);
-    for(let i = 0; i < 3; i++){
+function renderGitRepoData(data){
+    console.log(data)
+    const ul = document.querySelector("ul");
+    //const full_name = data.items[0].full_name;
+    const owner_login = data.items[0].owner.login;
+    const loginLi = document.createElement("li")
+    const h3 = document.createElement("h3");
+    loginLi.appendChild(h3);
+    h3.innerHTML = `${owner_login}'s  repositories`;
+    loginLi.appendChild(h3);
+    ul.appendChild(loginLi);
+    const repoUl = document.createElement("ul");
+    loginLi.appendChild(repoUl)
+    for(i=0; i< 3; i++){  
+        
         const li = document.createElement("li");
-        li.setAttribute("class", "url");
-        li.innerHTML = `${data.items[i].name}: <a href="#"> ${data.items[i].git_url} </a>`
-        ulRepo.appendChild(li);
-    } */
-
-    const ulName = document.querySelector("ul");
-    const li = document.createElement("li")
+        li.innerHTML = `${data.items[i].full_name} : ${data.items[i].git_url}`;
+        repoUl.appendChild(li);
+    
+    }
 }
 
-/* function getGitRepoData() { 
-    return Promise.all([promiseToClassmates("simonreddy2001"),
-        promiseToClassmates("semih1239"),
-        promiseToClassmates("Jul-S")
-    ]);
-
-}
-getGitRepoData(); */
 
 /* When you have the data for the different repositories,
 render the fullname of the repo, url of the repo, and the owner of the repo.

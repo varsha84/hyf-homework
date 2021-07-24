@@ -60,9 +60,9 @@ class Product {
       return totalProductsPrice;
 
     }
-    renderProducts(products) {
+    renderProducts() {
       const table = document.querySelector("table > tbody");
-      products.forEach(product => {
+      this.products.forEach(product => {
         const tr = document.createElement("tr");
         tr.setAttribute("class", "data-row");
         const product_td = document.createElement("td");
@@ -76,20 +76,21 @@ class Product {
     }
   
     getUser() {
-      // Implement functionality here
-      return new Promise((resolve, reject)=>{
-        fetch("https://jsonplaceholder.typicode.com/users/1")
-        .then((res)=> res.json())
-        .then((data)=> {
-          this.renderProducts(this.products)
-          this.getTotal()
-          resolve(data)
-        console.log("promise resolved")})
-        .catch((e)=>reject(e));
-      })
+     return  fetch("https://jsonplaceholder.typicode.com/users/1")
+      
     }
-  }
-  
+
+    renderTotalCostAndUSer(total, username){
+      const body = document.querySelector("body");
+      const p1 = document.createElement("p");
+      body.appendChild(p1);
+      p1.innerHTML = `Username: ${username}`
+      const p2 = document.createElement("p");
+      body.appendChild(p2);
+      p2.innerHTML = `Total: ${total}` 
+    }
+  } // class
+ 
 const shoppingCart = new ShoppingCart();
 const flatscreen = new Product("flat-screen", 5000);
 const rectangleScreen = new Product("rectangle-screen", 2000);
@@ -97,6 +98,8 @@ const squareScreen = new Product("square-screen", 3000);
 const lightScreen = new Product("light-screen", 6000);
 const thickScreen = new Product("thick-screen", 1000);
 const newScreen = new Product("new-screen", 5000);
+
+
 
 shoppingCart.addProduct(flatscreen);
 shoppingCart.addProduct(rectangleScreen);
@@ -112,7 +115,6 @@ console.log(shoppingCart.products);
 
 console.log(shoppingCart.getTotal());
 
-console.log(shoppingCart.getUser());
 
 console.log(`${flatscreen.name} price is ` + flatscreen.convertToCurrency("dollars"));
 
@@ -126,6 +128,15 @@ input.addEventListener("input", (e)=>{
     shoppingCart.renderProducts(shoppingCart.products)
   }
 })
+
+shoppingCart.getUser()
+.then(res => res.json())
+.then(data => {
+  shoppingCart.renderProducts();
+  const total = shoppingCart.getTotal();
+  shoppingCart.renderTotalCostAndUSer(total, data.username)
+})
+.catch(e => console.log(e))
 
  
  
