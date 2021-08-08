@@ -23,7 +23,7 @@ CREATE TABLE `student`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Create an index on the name column of the student table.*/
-CREATE UNIQUE INDEX student_name ON `student` (name);
+CREATE INDEX index_name ON student (name);
 
 /*Add a new column to the class table named status which can only have the following values: not-started, ongoing, finished (hint: enumerations).*/
 
