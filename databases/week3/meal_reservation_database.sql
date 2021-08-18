@@ -107,14 +107,21 @@ DELETE FROM review WHERE id = 1;
 
 ---Additional queries
 /*Get meals that has a price smaller than a specific price fx 90*/
-SELECT * FROM meal WHERE price > 120;
+SELECT * FROM meal WHERE price < 112;
 
 /*Get meals that still has available reservations*/
-SELECT meal.title, meal.max_reservations, reservation.number_of_guests
-FROM meal
-JOIN reservation ON meal.id = reservation.meal_id
-WHERE meal.max_reservations > reservation.number_of_guests;
-SELECT * FROM reservation;
+SELECT 
+    COALESCE(SUM(reservation.number_of_guests), 0) AS total_reservation,
+    meal.max_reservations,
+    meal.title,
+    meal.id
+FROM
+    meal
+        LEFT JOIN
+    reservation ON reservation.meal_id = meal.id
+GROUP BY meal.id
+HAVING max_reservations > total_reservation;
+
 /*Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde*/
 SELECT title FROM meal WHERE title LIKE "%chicken curry%";
 
@@ -130,9 +137,9 @@ JOIN review ON meal.id = review.meal_id
 WHERE review.stars > 4;
 
 /*Get reservations for a specific meal sorted by created_date */
-SELECT meal.title, meal.created_date, reservation.contact_name from meal
-JOIN reservation ON meal.id = reservation.meal_id
-WHERE meal.title = 'chicken curry'
+SELECT meal.title, meal.created_date, reservation.contact_name from reservation
+LEFT JOIN meal ON meal.id = reservation.meal_id
+WHERE meal.id = 1
 ORDER BY created_date;
 
 /*Sort all meals by average number of stars in the reviews*/
