@@ -13,9 +13,12 @@ console.log("inside warmup file");
     getArea(){
         return 3.14*(this.radius*this.radius);
     }
-
 }
 
+const Circle1 = new Circle(10);
+console.log(`Diameter of circle: ${Circle1.getDiameter()}`);
+console.log(`Parameter of circle : ${Circle1.getCircumference()}`);
+console.log(`Area of circle : ${Circle1.getArea()}`);
 
 module.exports = Circle;
 

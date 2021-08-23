@@ -1,11 +1,6 @@
-/*Circle Area*/
+
 const express = require("express");
 const app = express();
-const Circle = require("../../warmup.js"); 
-const Circle1 = new Circle(10);
-console.log(`Diameter of circle: ${Circle1.getDiameter()}`);
-console.log(`Parameter of circle : ${Circle1.getCircumference()}`);
-console.log(`Area of circle : ${Circle1.getArea()}`);
 
 /*meals, reviews, and reservations*/
 
@@ -35,8 +30,18 @@ function randomMeal(){
 
 }
 
+app.get("/", async(request, response) => {
+  response.send("Meal Sharing Web App");
+});
+
+
+app.get("/meal", async(request, response) => {
+
+  response.json(randomMeal()[0]);
+});
+
 app.get("/meals", async(request, response) => {
-  response.json(mealsWithReviews());
+  response.json(mealsWithReviews(meals));
 });
 
 app.get("/cheap-meals", async(request, response) => {
@@ -45,10 +50,6 @@ app.get("/cheap-meals", async(request, response) => {
 
 app.get("/large-meals", async(request, response) => {
   response.json(largeMeals());
-});
-
-app.get("/meal", async(request, response) => {
-  response.json(randomMeal());
 });
 
 app.get("/reservations", async(request, response) => {
@@ -60,10 +61,4 @@ app.get("/reservation", async(request, response) => {
   response.json(reservations[id]);
 });
 
-
-app.listen(3000, function () {
-  console.log(`> Ready on http://localhost:3000`);
-});
-
-
-
+module.exports = app;
