@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
     .filter((meal) => req.query.title? meal.title.toLowerCase().includes(req.query.title.toLowerCase()) : true)
     .filter((meal) => req.query.createdAfter ? Date.parse(meal.createdAt) > Date.parse(req.query.createdAfter) : true)
     
-    if (req.query.limit && isNaN(parseInt(req.query.limit))){
+    if (req.query.limit && !isNaN(parseInt(req.query.limit))){
       filteredData = filteredData.slice(0, req.query.limit)
     }
     
@@ -39,7 +39,7 @@ router.get("/:id", async (req, res) => {
       } 
   }
   else{
-      return res.status(400).json({error:"id was not a number"});
+      return res.status(400).json({error:"wrong parameter"});
   }
 })
 

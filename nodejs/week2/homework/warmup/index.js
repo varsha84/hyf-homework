@@ -11,18 +11,18 @@ app.get("/numbers/add", (req, res)=>{
         return res.send(`first num and second num addition : ${first + second}`);
     }  
     else{
-        return res.status(406).json({error:"id was not a number"});
+        return res.status(406).json({error:"wrong parameter"});
     }
 }) 
 
 app.get("/numbers/multiply/:first/:second",(req, res)=>{
-    if(!isNaN(parseInt(req.params.first)) && isNaN(parseInt(req.params.second))) {
+    if(!isNaN(parseInt(req.params.first)) && !isNaN(parseInt(req.params.second))) {
         const first = parseInt(req.params.first);
         const second = parseInt(req.params.second);  
         return res.send(`first num and second num multiply : ${first * second}`)
     }
     else {
-        return res.status(406).json({error:"id was not a number"});
+        return res.status(406).json({error:"wrong parameter"});
     }
 })
 

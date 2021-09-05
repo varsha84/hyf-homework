@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) =>{
         }
     }
     else{
-         return res.status(400).json({error:"id was not a number"});
+         return res.status(400).json({error:"wrong parameter"});
     }
   });
 
