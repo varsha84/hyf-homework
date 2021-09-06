@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     return res.status(400).send({"error": "Parameter not Acceptable"})
   }
 
-    const filteredData = meals.filter( (meal) => req.query.maxPrice ? meal.price < req.query.maxPrice: true) 
+    let filteredData = meals.filter( (meal) => req.query.maxPrice ? meal.price < req.query.maxPrice: true) 
     .filter((meal) => req.query.title? meal.title.toLowerCase().includes(req.query.title.toLowerCase()) : true)
     .filter((meal) => req.query.createdAfter ? Date.parse(meal.createdAt) > Date.parse(req.query.createdAfter) : true)
     
@@ -39,7 +39,7 @@ router.get("/:id", async (req, res) => {
       } 
   }
   else{
-      return res.status(400).json({error:"wrong parameter"});
+      return res.status(400).json({error:"id was not a number"});
   }
 })
 
