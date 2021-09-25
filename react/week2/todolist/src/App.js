@@ -1,69 +1,50 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Todo from './todo'
 
-let tasks = ["submit hyf homework", 
-            "go for a run", 
-            "watach movie"];
+let tasks = [
+  {id :1, description:"submit hyf homework"}, 
+  {id :2, description: "go for a run"}, 
+  {id:3, description:"watach movie"}
+];
 
-            
-function TodoTimer(props){
+//Timer on webpage
+
+ function TodoTimer(props){
   const [count, setCount] = useState(0);
-  setTimeout(() => setCount(count + 1), 1000);
+  useEffect(()=>{
+    setTimeout(() => setCount(count + 1), 1000);
+  })
   return <p>You have used this app for {count} seconds</p>;
 };
-
-function Todo(props){
-  
-  const [checked, updateCheck] = useState(false)
-  const taskDone = checked ? "done" : ""
-
-  return (
-    
-    <div className={taskDone}>
-      <input type="checkbox" onClick={() => {updateCheck(!checked)}}></input>
-      <label>{props.name}</label>
-    </div>
-  
-  )
-}
+ 
+//main parent
 
 function App() {
-
-  const [todos, updateTodos] = useState(tasks)
-
-
+  const [todos, setTodos] = useState(tasks)
+  
   const onAdd = () => {
-    console.log ("adding new todo")
-    const newTodo  = document.getElementById("newTodo").value;
-    let newTodoList = todos.concat(newTodo)
-    updateTodos(newTodoList)
-    console.log(todos)
+    const newTodo  = { id: Math.floor(Math.random() * 100), description: "Random Text for New Todo" };
+    let newTodoList = todos.concat(newTodo);
+    setTodos(newTodoList);
   }
 
-  const onDelete = (index) => {
-    console.log("delete clicked" + index)
-    console.log(todos)
-    let newTodoList = todos.filter((data, idx) => idx !== index); 
-    updateTodos(newTodoList)
-    console.log(todos)
+  const onDelete = (id) => {
+    let newTodoList = todos.filter((todo) => todo.id !== id); 
+    setTodos(newTodoList)
   }
 
   return (
     <div className="App">
-      <TodoTimer/>
       <h1>To Do List</h1>
-      <div className="btn1">
+      <TodoTimer/>
       <button onClick={onAdd}> Add Todo </button>  
-      <input id="newTodo"></input>
-      </div>
       {
-        todos.map((todo, index) => {
+        todos.map((todo) => {
           return (
             <div className="Todolist">
-            <Todo name={todo} key={index} />
-            <button className="btn" onClick={() => {onDelete(index)}}>Delete</button>  
+              <Todo name={todo.description} key={todo} />
+              <button className="btn" onClick={() => {onDelete(todo.id)}}>Delete</button>  
             </div>
           )
         }) 
