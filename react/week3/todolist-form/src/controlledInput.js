@@ -1,7 +1,6 @@
 import React,{ useState } from 'react'
 
 const ControlledInput =(props)=>{
-    console.log("controlled input");
     const [des, setDes] = useState('');
     const [deadline, setDeadline] = useState('');
 
@@ -24,7 +23,7 @@ const ControlledInput =(props)=>{
                     value={deadline}
                     onChange={onChangeDate}
                 />
-            <button onClick={ ()=> {props.addItem(des, deadline)}}>Add todo</button>
+            <button onClick={()=> {props.addItem(des, deadline)}}>Add todo</button>
         </div>
     
     )
