@@ -1,16 +1,19 @@
+import React from 'react'
+import { context } from './themeContext'
+function SearchResult(){
 
-function SearchResult(props){
-
+    const contextValue = React.useContext(context);
     return(
         <div>
+            {contextValue.isLoading ? <h3> Loding....</h3> : 
             <ul>
-                {props.gitUsers.map((item) => (
+                {contextValue.gitUsers.map((item) => (
                     <li key={item.id}>
                      {item.login}
                     </li>
 
                 ))}
-            </ul>
+            </ul>}
             
         </div>
     )
