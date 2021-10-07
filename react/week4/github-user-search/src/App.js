@@ -22,8 +22,7 @@ function App() {
       setIsLoading(false)
       })
     .catch((e)=>
-      setIsError(true)
-          )
+      setIsError(true))
   },[user]) 
   
   const buketContent = {user:user, gitUsers:gitUsers, isLoading: isLoading, isError:isError};
